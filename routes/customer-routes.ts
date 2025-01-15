@@ -13,8 +13,20 @@ router.get("/view", (req, res) => {
 
 router.post("/post", (req, res) => {
     const {_id, _name, _address}=req.body;
-    CustomerList.push(new Customer(_id, _name))
+    CustomerList.push(new Customer(_id, _name,_address));
     res.status(201).send("customer Saved")
+});
+
+router.patch("/update/:id", (req, res) => {
+    const {_name}=req.body;
+    const {id} = req.params
+    CustomerList.map((customer) => {
+        if (id == customer._id){
+            customer._name = _name;
+            res.send("Update successfully");
+        }
+    })
+    res.status(201).send("Customer updated")
 });
 
 router.delete("/delete", async (req, res) => {

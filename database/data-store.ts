@@ -1,1 +1,3 @@
-export let CustomerList :any[]=[];
+import {Customer} from "../model/Customer";
+
+export let CustomerList :Customer[]=[];

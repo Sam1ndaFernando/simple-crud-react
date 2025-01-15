@@ -1,13 +1,23 @@
 export class Customer{
-    private _name : string;
-    private _address:string;
+    _id : string;
+    _name : string;
+    _address:string;
     // private _phone :string;
 
 
-    constructor(name: string, address: string) {
+    constructor(id: string, name: string, address: string) {
+        this._id = id;
         this._name = name;
         this._address = address;
-        // this._phone = phone;
+    }
+
+
+    get id(): string {
+        return this._id;
+    }
+
+    set id(value: string) {
+        this._id = value;
     }
 
     get name(): string {
@@ -25,12 +35,4 @@ export class Customer{
     set address(value: string) {
         this._address = value;
     }
-
-    // get phone(): string {
-    //     return this._phone;
-    // }
-    //
-    // set phone(value: string) {
-    //     this._phone = value;
-    // }
 }
